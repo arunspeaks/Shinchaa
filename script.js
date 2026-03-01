@@ -1,5 +1,4 @@
-// 🎂 SET YOUR DATE
-let birthday = new Date("October 12, 2026 00:00:00").getTime();
+let birthday = new Date("May 19, 2026 00:00:00").getTime();
 
 setInterval(() => {
     let now = new Date().getTime();
@@ -10,14 +9,15 @@ setInterval(() => {
     let m = Math.floor((gap % (1000*60*60))/(1000*60));
     let s = Math.floor((gap % (1000*60))/1000);
 
-    document.getElementById("days").innerText = d;
-    document.getElementById("hours").innerText = h;
-    document.getElementById("minutes").innerText = m;
-    document.getElementById("seconds").innerText = s;
+    if(document.getElementById("days")){
+        document.getElementById("days").innerText = d;
+        document.getElementById("hours").innerText = h;
+        document.getElementById("minutes").innerText = m;
+        document.getElementById("seconds").innerText = s;
+    }
 },1000);
 
 function startSurprise(){
-    document.getElementById("bgMusic").play();
     window.location.href="story.html";
 }
 
@@ -26,10 +26,10 @@ function openLetter(el){
     launchFireworks();
 }
 
-// Simple Fireworks
 function launchFireworks(){
     const canvas=document.getElementById("fireworks");
     if(!canvas) return;
+
     const ctx=canvas.getContext("2d");
     canvas.width=window.innerWidth;
     canvas.height=window.innerHeight;
